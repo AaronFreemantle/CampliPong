@@ -1,3 +1,9 @@
-export default function App({ Component, pageProps }) {
-    return <Component {...pageProps} />
-}
+import { AppProps } from "next/app";
+
+const App = ({ Component, pageProps }: AppProps) => {
+  return (
+    <Component {...pageProps} />
+  );
+};
+
+export default App;
