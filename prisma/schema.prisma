@@ -61,6 +61,7 @@ model User {
   image         String?
   createdAt     DateTime    @default(now()) @map(name: "created_at")
   updatedAt     DateTime    @updatedAt @map(name: "updated_at")
+  rating        Int         
   accounts      Account[]
   sessions      Session[]
   userScores    UserScore[]
@@ -68,7 +69,6 @@ model User {
   @@map(name: "users")
 }
 
-// match has many userscores
 model Match {
   id         Int         @id @default(autoincrement())
   createdAt  DateTime    @default(now()) @map(name: "created_at")
