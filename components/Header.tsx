@@ -1,7 +1,8 @@
-import React from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { signOut, useSession } from 'next-auth/react';
+import React from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { signOut, useSession } from "next-auth/react";
+import { Nav, Logo, Links, User } from "./styles/Header.styles";
 
 const Header: React.FC = () => {
   const router = useRouter();
@@ -10,43 +11,49 @@ const Header: React.FC = () => {
 
   const { data: session, status } = useSession();
 
-  let right = null;
+  let user = null;
 
-  if (status === 'loading') {
-    right = (
-      <div className="right">
+  if (status === "loading") {
+    user = (
+      <>
         <p>Validating session ...</p>
-      </div>
+      </>
     );
   }
 
   if (!session) {
-    right = (
-      <div className="right">
+    user = (
+      <>
         <Link href="/api/auth/signin">
-          <a data-active={isActive('/signup')}>Log in</a>
+          <a data-active={isActive("/signup")}>Log in</a>
         </Link>
-      </div>
+      </>
     );
   }
 
   if (session) {
-    right = (
-      <div className="right">
+    user = (
+      <>
         <p>
           {session.user.name} ({session.user.email})
         </p>
         <button onClick={() => signOut()}>
           <a>Log out</a>
         </button>
-      </div>
+      </>
     );
   }
 
   return (
-    <nav>
-      {right}
-    </nav>
+    <Nav>
+      <Logo src="/pong.png" alt="logo" width="30" height="30" />
+      <Links>
+        <Link href="/leaderboard">
+          <a>Leaderboard</a>
+        </Link>
+      </Links>
+      <User>{user}</User>
+    </Nav>
   );
 };
 
