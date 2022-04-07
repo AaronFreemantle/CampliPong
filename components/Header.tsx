@@ -51,6 +51,9 @@ const Header: React.FC = () => {
         <Link href="/leaderboard">
           <a>Leaderboard</a>
         </Link>
+        <Link href="/api/matches">
+          <a>Matches</a>
+        </Link>
       </Links>
       <User>{user}</User>
     </Nav>

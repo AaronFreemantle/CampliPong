@@ -3,6 +3,7 @@ import { ThemeProvider } from "styled-components";
 import { AppProps } from "next/app";
 import Head from "next/head";
 import GlobalStyle from "../components/styles/Global";
+import Layout from "../components/Layout";
 
 const theme = {
   colors: {
@@ -17,12 +18,14 @@ const App = ({ Component, pageProps }: AppProps) => {
   return (
     <SessionProvider session={pageProps.session}>
       <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Head>
-          <title>Camplipong</title>
-          <meta name="description" content="Camplify Ping Pong Leaderboard" />
-        </Head>
-        <Component {...pageProps} />
+        <Layout>
+          <GlobalStyle />
+          <Head>
+            <title>Camplipong</title>
+            <meta name="description" content="Camplify Ping Pong Leaderboard" />
+          </Head>
+          <Component {...pageProps} />
+        </Layout>
       </ThemeProvider>
     </SessionProvider>
   );

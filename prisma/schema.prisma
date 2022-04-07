@@ -61,7 +61,7 @@ model User {
   image         String?
   createdAt     DateTime    @default(now()) @map(name: "created_at")
   updatedAt     DateTime    @updatedAt @map(name: "updated_at")
-  rating        Int         
+  rating        Int         @default(1500)
   accounts      Account[]
   sessions      Session[]
   userScores    UserScore[]
