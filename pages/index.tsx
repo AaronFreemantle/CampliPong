@@ -8,8 +8,7 @@ type Props = {};
 const Blog: React.FC<Props> = (props) => {
   return (
     <div className="page">
-      <h1>Public Feed</h1>
-      <main></main>
+      <h1>Work in Progress - Coming Soon&trade; </h1>
     </div>
   );
 };
