@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { signOut, useSession } from "next-auth/react";
-import { Nav, Logo, Links, User } from "./styles/Header.styles";
+import { Nav, Logo, Links, User, Title } from "./styles/Header.styles";
 
 const Header: React.FC = () => {
   const router = useRouter();
@@ -46,7 +46,8 @@ const Header: React.FC = () => {
 
   return (
     <Nav>
-      <Logo src="/pong.png" alt="logo" width="30" height="30" />
+      <Logo src="/pong.png" alt="logo" width="40" height="40" />
+      <Title>Camplipong</Title>
       <Links>
         <Link href="/leaderboard">
           <a>Leaderboard</a>
