@@ -46,14 +46,15 @@ const Header: React.FC = () => {
 
   return (
     <Nav>
-      <Logo src="/pong.png" alt="logo" width="40" height="40" />
+      <Link href="/">
+        <a>
+          <Logo src="/pong.png" alt="logo" width="40" height="40" />
+        </a>
+      </Link>
       <Title>Camplipong</Title>
       <Links>
         <Link href="/leaderboard">
           <a>Leaderboard</a>
-        </Link>
-        <Link href="/api/matches">
-          <a>Matches</a>
         </Link>
       </Links>
       <User>{user}</User>
